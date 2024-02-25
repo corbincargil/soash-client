@@ -8,9 +8,9 @@ function PrimaryLayout() {
   return (
     <>
       <Navbar />
-      <div className=" bg-slate-200 w-full p-4 flex flex-col h-full justify-between">
+      <div className="min-h-screen h-full w-full bg-slate-200 p-4 flex flex-col justify-between">
         <Header />
-        <div className=" h-full">
+        <div className="h-full">
           <Outlet />
         </div>
         <Footer />

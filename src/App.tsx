@@ -11,6 +11,8 @@ import { Evergreen } from "./pages/Evergreen";
 import { Register } from "./pages/Register";
 import { LoginLayout } from "./layouts/LoginLayout";
 import { Landing } from "./pages/Landing";
+import { Settings } from "./pages/Settings";
+import { Help } from "./pages/Help";
 
 const analyticsLoader = () => {
   return [{ id: 123, platform: "Instagram" }];
@@ -24,10 +26,12 @@ const router = createBrowserRouter([
     Component: PrimaryLayout,
     children: [
       { path: "dashboard", Component: Dashboard },
-      { path: "analytics", Component: Analytics, loader: analyticsLoader },
-      { path: "my-profile", Component: MyProfile },
-      { path: "evergreen", Component: Evergreen },
       { path: "posts/*", Component: PostRoutes },
+      { path: "analytics", Component: Analytics, loader: analyticsLoader },
+      { path: "evergreen", Component: Evergreen },
+      { path: "my-profile", Component: MyProfile },
+      { path: "settings", Component: Settings },
+      { path: "help", Component: Help },
       { path: "*", Component: NotFound },
     ],
   },
