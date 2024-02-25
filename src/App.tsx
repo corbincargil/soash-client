@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import { PrimaryRoutes } from "./routes/PrimaryRoutes";
+import "./styles/App.css";
 
 function App() {
-  const [users, setUsers] = useState<any[]>([]);
-
-  useEffect(() => {
-    fetch("/api/v1/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data.users);
-      });
-  }, []);
-
   return (
-    <div className="App">
-      {users.length ? users?.map((u, i) => <p key={i}>{u}</p>) : <p>Hello</p>}
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="*" element={<PrimaryRoutes />} />
+      </Routes>
+    </>
   );
 }
 
