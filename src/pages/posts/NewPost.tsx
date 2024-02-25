@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { PostLayout } from "../Components/layouts/PostLayout";
+import { PostLayout } from "../../layouts/PostLayout";
 
 export function NewPost() {
   const { id } = useParams();

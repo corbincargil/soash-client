@@ -1,3 +1,11 @@
+import { useLocation } from "react-router-dom";
+import { Header } from "../Components/Header";
+
 export function Dashboard() {
-  return <h1>Dashboard</h1>;
+  const { state } = useLocation();
+  return (
+    <div>
+      <h1>Content here</h1>
+    </div>
+  );
 }
