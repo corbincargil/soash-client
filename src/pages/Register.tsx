@@ -13,17 +13,17 @@ export function Register() {
     setLoading(true);
     setTimeout(() => {
       setUser(true);
-    }, 1000);
+    }, 250);
   };
 
   useEffect(() => {
-    if (user) setTimeout(() => navigate("/dashboard"), 1000);
+    if (user) navigate("/dashboard");
   }, [user]);
 
   return (
     <>
       {loading ? (
-        <h1>Redirecting...</h1>
+        <h1 className="my-6 font-bold text-lg text-blue-500">Redirecting...</h1>
       ) : (
         <RegisterForm onSubmit={mimimickLogin} loading={loading} />
       )}

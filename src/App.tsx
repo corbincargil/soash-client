@@ -7,10 +7,10 @@ import { Analytics } from "./pages/Analytics";
 import { MyProfile } from "./pages/MyProfile";
 import { PostRoutes } from "./routes/PostRoutes";
 import { NotFound } from "./pages/NotFound";
-import { useEffect, useState } from "react";
 import { Evergreen } from "./pages/Evergreen";
 import { Register } from "./pages/Register";
 import { LoginLayout } from "./layouts/LoginLayout";
+import { Landing } from "./pages/Landing";
 
 const analyticsLoader = () => {
   return [{ id: 123, platform: "Instagram" }];
@@ -18,6 +18,7 @@ const analyticsLoader = () => {
 
 //todo: use 'replace' prop in Link components to handle not allowing users to click 'back' after redirecting from /login page
 const router = createBrowserRouter([
+  { path: "/", Component: Landing },
   {
     path: "*",
     Component: PrimaryLayout,
@@ -30,7 +31,6 @@ const router = createBrowserRouter([
       { path: "*", Component: NotFound },
     ],
   },
-  { path: "/", Component: Login },
   {
     path: "/login*",
     Component: LoginLayout,
@@ -40,7 +40,11 @@ const router = createBrowserRouter([
       { path: "*", Component: Register },
     ],
   },
-  { path: "/logout", Component: Logout },
+  {
+    path: "/logout",
+    Component: LoginLayout,
+    children: [{ index: true, Component: Logout }],
+  },
 ]);
 
 export default function App() {

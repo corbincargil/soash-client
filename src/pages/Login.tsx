@@ -12,7 +12,7 @@ export function Login() {
     setLoading(true);
     setTimeout(() => {
       setUser(true);
-    }, 1000);
+    }, 500);
   };
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function Login() {
   return (
     <>
       {loading ? (
-        <h1>Redirecting...</h1>
+        <h1 className="my-6 font-bold text-lg text-blue-500">Redirecting...</h1>
       ) : (
         <LoginForm onSubmit={mimimickLogin} loading={loading} />
       )}
