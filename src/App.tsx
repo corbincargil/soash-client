@@ -7,6 +7,10 @@ import { Analytics } from "./pages/Analytics";
 import { MyProfile } from "./pages/MyProfile";
 import { PostRoutes } from "./routes/PostRoutes";
 import { NotFound } from "./pages/NotFound";
+import { useEffect, useState } from "react";
+import { Evergreen } from "./pages/Evergreen";
+import { Register } from "./pages/Register";
+import { LoginLayout } from "./layouts/LoginLayout";
 
 const analyticsLoader = () => {
   return [{ id: 123, platform: "Instagram" }];
@@ -16,23 +20,32 @@ const analyticsLoader = () => {
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <PrimaryLayout />,
+    Component: PrimaryLayout,
     children: [
-      { path: "dashboard", element: <Dashboard /> },
-      { path: "analytics", element: <Analytics />, loader: analyticsLoader },
-      { path: "my-profile", element: <MyProfile /> },
-      { path: "posts/*", element: <PostRoutes /> },
-      { path: "*", element: <NotFound /> },
+      { path: "dashboard", Component: Dashboard },
+      { path: "analytics", Component: Analytics, loader: analyticsLoader },
+      { path: "my-profile", Component: MyProfile },
+      { path: "evergreen", Component: Evergreen },
+      { path: "posts/*", Component: PostRoutes },
+      { path: "*", Component: NotFound },
     ],
   },
   { path: "/", Component: Login },
-  { path: "/login", Component: Login },
+  {
+    path: "/login*",
+    Component: LoginLayout,
+    children: [
+      { index: true, Component: Login },
+      { path: "register", Component: Register },
+      { path: "*", Component: Register },
+    ],
+  },
   { path: "/logout", Component: Logout },
 ]);
 
 export default function App() {
   return (
-    <div className=" flex justify-between h-screen w-screen">
+    <div className="m-0 p-0 flex justify-between min-h-screen h-full w-full">
       <RouterProvider router={router} />
     </div>
   );

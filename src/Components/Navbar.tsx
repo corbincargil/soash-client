@@ -21,7 +21,7 @@ export default function Navbar() {
           <NavLink to="/my-profile">My profile</NavLink>
         </li>
         <li className=" mt-3 mb-3">
-          <NavLink to="/blogs">Blogs</NavLink>
+          <NavLink to="/evergreen">Evergreen</NavLink>
         </li>
         <li className=" mt-3 mb-3">
           <NavLink to="/login">Log in</NavLink>

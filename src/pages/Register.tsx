@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../Components/Forms/LoginForm";
+import RegisterForm from "../Components/Forms/RegisterForm";
 
-export function Login() {
+export function Register() {
   const [user, setUser] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,8 +25,14 @@ export function Login() {
       {loading ? (
         <h1>Redirecting...</h1>
       ) : (
-        <LoginForm onSubmit={mimimickLogin} loading={loading} />
+        <RegisterForm onSubmit={mimimickLogin} loading={loading} />
       )}
+      <div className="text-center">
+        <p className="text-slate-400 opacity-90">Already have an account?</p>
+        <Link to={"/login"} className="hover:text-blue-900">
+          Log in
+        </Link>
+      </div>
     </>
   );
 }
