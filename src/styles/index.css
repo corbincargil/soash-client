@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+/* * {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+} */
+
+* {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+}

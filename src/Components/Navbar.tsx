@@ -21,7 +21,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const activeLinkClassNames =
   "flex gap-2 bg-slate-200 border text-blue-900 border-slate-200 hover:underline rounded-lg p-2";
 const inactiveLinkClassNames =
-  "flex gap-2  my-6 text-slate-200 font-bold font-mono hover:bg-slate-400  hover:ease-linear hover:duration-300 rounded-lg p-2";
+  "flex gap-2  text-slate-200 font-semibold hover:bg-slate-400  hover:ease-linear hover:duration-300 rounded-lg p-2";
 // const inactiveLinkClassNames =
 //   " hover:border hover:border-slate-200 rounded-lg p-2";
 
@@ -51,7 +51,7 @@ const tertiaryLinks: NavigationLinkInterface[] = [
 
 export default function Navbar() {
   return (
-    <nav className="top-0 left-0 h-screen w-48 flex flex-col bg-gradient-to-r from-blue-950 to-blue-800 shadow-lg p-4 ">
+    <nav className="top-0 left-0 h-screen w flex flex-col bg-gradient-to-r from-blue-950 to-blue-800 shadow-lg p-4 ">
       <div>
         <InterestsIcon className="text-slate-200" fontSize="large" />
       </div>
@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="my-3 border-b border-slate-200">
           <ul>
             {primaryLinks.map((l) => (
-              <li className="my-6 text-slate-200 font-bold font-mono">
+              <li className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
@@ -76,7 +76,7 @@ export default function Navbar() {
         <div className="my-3 border-b border-slate-200">
           <ul>
             {secondaryLinks.map((l) => (
-              <li className="my-6 text-slate-200 font-bold font-mono">
+              <li className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
@@ -93,7 +93,7 @@ export default function Navbar() {
         <div className="my-3 border-b border-slate-200">
           <ul>
             {tertiaryLinks.map((l) => (
-              <li className="my-6 text-slate-200 font-bold font-mono">
+              <li className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
