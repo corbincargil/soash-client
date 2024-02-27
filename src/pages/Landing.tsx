@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {
   primaryClassNames,
   secondaryClassNames,
-} from "../Components/Forms/helpers/Button";
+} from "../components/Forms/helpers/Button";
 
 export function Landing() {
   return (

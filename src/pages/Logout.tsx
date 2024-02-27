@@ -22,7 +22,7 @@ export function Logout() {
 
   useEffect(() => {
     completed && redirect();
-  }, [completed]);
+  }, [completed, redirect]);
 
   return completed ? (
     <h1 className="my-6 font-bold text-lg text-blue-500">Success</h1>

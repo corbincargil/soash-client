@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginForm from "../Components/Forms/LoginForm";
-import RegisterForm from "../Components/Forms/RegisterForm";
+import LoginForm from "../components/Forms/LoginForm";
+import RegisterForm from "../components/Forms/RegisterForm";
 
 export function Register() {
   const [user, setUser] = useState(false);
@@ -18,7 +18,7 @@ export function Register() {
 
   useEffect(() => {
     if (user) navigate("/dashboard");
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <>

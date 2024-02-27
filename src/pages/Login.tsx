@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../Components/Forms/LoginForm";
+import LoginForm from "../components/Forms/LoginForm";
 
 export function Login() {
   const [user, setUser] = useState(false);
@@ -17,7 +17,7 @@ export function Login() {
 
   useEffect(() => {
     if (user) setTimeout(() => navigate("/dashboard"), 1000);
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <>

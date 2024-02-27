@@ -1,6 +1,6 @@
-import { Header } from "../Components/Header";
-import { Footer } from "../Components/Footer";
-import Navbar from "../Components/Navbar";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import Navbar from "../components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 
 function PrimaryLayout() {

@@ -11,6 +11,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LoginIcon from "@mui/icons-material/Login";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useState } from "react";
 
 //todo: alternate navbar styles - delete once styling is decided
 // <nav className="top-0 left-0 min-h-screen h-full w-48 flex flex-col bg-slate-200 border border-r-gray-300 shadow-lg p-4">
@@ -50,16 +51,33 @@ const tertiaryLinks: NavigationLinkInterface[] = [
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
-    <nav className="top-0 left-0 h-screen w flex flex-col bg-gradient-to-r from-blue-950 to-blue-800 shadow-lg p-4 ">
+    <nav className="w-12 bg-slate-200 sm:w-auto top-0 left-0 h-screen flex flex-col sm:bg-gradient-to-r sm:from-blue-950 sm:to-blue-800 shadow-lg p-4 ">
       <div>
         <InterestsIcon className="text-slate-200" fontSize="large" />
       </div>
-      <div className="h-full flex flex-col justify-between ">
+      {/* Hamburger Icon */}
+      <div className="sm:hidden flex items-center">
+        <button onClick={() => setOpen(!open)}>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+      <div className="invisible sm:visible h-full flex flex-col justify-between ">
         <div className="my-3 border-b border-slate-200">
           <ul>
             {primaryLinks.map((l) => (
-              <li className="my-2 text-slate-200 font-bold">
+              <li key={l.label} className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
@@ -76,7 +94,7 @@ export default function Navbar() {
         <div className="my-3 border-b border-slate-200">
           <ul>
             {secondaryLinks.map((l) => (
-              <li className="my-2 text-slate-200 font-bold">
+              <li key={l.label} className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
@@ -93,7 +111,7 @@ export default function Navbar() {
         <div className="my-3 border-b border-slate-200">
           <ul>
             {tertiaryLinks.map((l) => (
-              <li className="my-2 text-slate-200 font-bold">
+              <li key={l.label} className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? activeLinkClassNames : inactiveLinkClassNames
@@ -107,6 +125,18 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
+      </div>
+      {/* Mobile Menu */}
+      <div className={`${open ? "block" : "hidden"} md:hidden`}>
+        <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-700">
+          Features
+        </a>
+        <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-700">
+          Pricing
+        </a>
+        <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-700">
+          About
+        </a>
       </div>
     </nav>
   );
