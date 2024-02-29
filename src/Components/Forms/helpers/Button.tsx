@@ -3,19 +3,19 @@ import React from "react";
 interface ButtonProps {
   text: string;
   onClick: any;
-  disabled: boolean;
+  disabled?: boolean;
   variant?: "primary" | "secondary";
 }
 
 export const primaryClassNames =
-  "m-2 p-2 text-center bg-blue-800 text-slate-200 font-semibold rounded-md shadow-lg hover:bg-blue-500 ";
+  "m-2 p-2 text-center bg-blue-800 text-slate-200 font-semibold rounded-md shadow-lg hover:bg-blue-500";
 export const secondaryClassNames =
   "m-2 p-2 text-center text-blue-900 bg-slate-200 font-semibold rounded-md shadow-lg border border-blue-900 hover:bg-blue-500 hover:text-slate-200 ";
 
 export default function Button({
   text,
   onClick,
-  disabled,
+  disabled = false,
   variant = "primary",
 }: ButtonProps) {
   return (

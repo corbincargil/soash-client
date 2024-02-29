@@ -80,7 +80,7 @@ export default function Navbar() {
               <li key={l.label} className="my-2 text-slate-200 font-bold">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? activeLinkClassNames : inactiveLinkClassNames
+                    "flex gap-2  text-slate-200 font-semibold hover:bg-slate-400  hover:ease-linear hover:duration-300 rounded-lg p-2"
                   }
                   to={l.to}
                 >
